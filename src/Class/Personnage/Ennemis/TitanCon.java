@@ -6,8 +6,9 @@ public class TitanCon extends Personnage {
     public String nom = "Titan Con";
     public int cognerie;
 
-    public TitanCon(String nom, int hp, int force, String[] inventaire) {
-        super(nom, hp, force, inventaire);
+    public TitanCon(int hp, int force) {
+
+        super("Titan Con", hp, force);
     }
 
     // Se met des dégats totalement conssenti losqu'il attaque

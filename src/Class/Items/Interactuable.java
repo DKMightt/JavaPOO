@@ -8,22 +8,22 @@ import Class.Personnage.Joueur;
 import Class.Personnage.Personnage;
 
 public interface Interactuable {
-    public default void RamasserNourritures(Personnage player){
+    public default void RamasserNourritures(Joueur player){
         System.out.println(player.nom + " récupère l'item suivant : " + Nourritures.nom  );
 
     };
-    public default void UtiliserNourritures(Personnage player){
+    public default void UtiliserNourritures(Joueur player){
 
         player.hp += Nourritures.bonus;
         System.out.println(player.nom + " démollit le " + Nourritures.nom);
 
     };
-    public default void RamasserTesto(Personnage player){
+    public default void RamasserTesto(Joueur player){
 
         System.out.println(player.nom + " récupère l'item suivant : " + Testo.nom);
     }
 
-    public default void UtiliserTesto(Personnage player){
+    public default void UtiliserTesto(Joueur player){
 
         player.force += Testo.bonus;
         System.out.println(player.nom + " englouti la " + Testo.nom);

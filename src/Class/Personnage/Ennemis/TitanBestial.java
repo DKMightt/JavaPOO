@@ -7,8 +7,8 @@ public class TitanBestial extends Personnage {
     public String nom = "Titan Bestial";
     public int nbCailloux;
 
-    public TitanBestial(String nom, int hp, int force, String[] inventaire) {
-        super(nom, hp, force, inventaire);
+    public TitanBestial( int hp, int force) {
+        super("Titan Bestial", hp, force);
     }
 
     // Dégats aléatoire entre X et X rafales

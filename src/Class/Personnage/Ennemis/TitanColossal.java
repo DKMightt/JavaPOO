@@ -6,8 +6,8 @@ public class TitanColossal extends Personnage {
     public String nom = "Titan Colossal";
     public int brulure;
 
-    public TitanColossal(String nom, int hp, int force, String[] inventaire) {
-        super(nom, hp, force, inventaire);
+    public TitanColossal(int hp, int force) {
+        super("Titan Colossal", hp, force);
     }
 
     // Dégats lorsqu'il est attaqué

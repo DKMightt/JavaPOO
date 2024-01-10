@@ -3,12 +3,12 @@ package Class.Items.Armes;
 import Class.Items.ObjetsDuJeu;
 
 public class Arme extends ObjetsDuJeu {
-    public int dégats;
+    public int degats;
     public int vitesseAttaque;
 
-    public Arme(String nom, int durabilite, int dégats, int vitesseAttaque) {
+    public Arme(String nom, int durabilite, int degats, int vitesseAttaque) {
         super(nom, durabilite);
-        this.dégats = dégats;
+        this.degats = degats;
         this.vitesseAttaque = vitesseAttaque;
     }
 
