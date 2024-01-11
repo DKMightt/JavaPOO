@@ -16,16 +16,16 @@ public class TitanBestial extends Personnage {
     // Dégats aléatoire entre X et X rafales
     public void attaquer(Joueur bot) {
         Random random = new Random();
-        int cailloux = random.nextInt(1, 6);
+        int cailloux = random.nextInt(1, 6); // Determine le nombre de projectiles
         System.out.println(nom + " va rafaler " + cailloux + " fois " + bot.nom);
         force *= cailloux;
         bot.hp -= force;
         System.out.println(bot.nom + " a prit " + force + " dégats ");
         System.out.println(" il reste " + bot.hp + " HP a " + bot.nom);
-        force = 15;
+        force = 15; // Reset des degats des cailloux
     }
 
-    public void singerie(Joueur bot) {
+    public void singerie(Joueur bot) { // Boost du titan
         force = force += 10;
         System.out.println(nom + " pousse un hurlement bestial et passe a " + force + " d'attaque");
     }

@@ -16,14 +16,14 @@ public class TitanCon extends Personnage {
     public void attarder(Joueur bot) {
         Random random = new Random();
         int golmon = random.nextInt(2);
-        if (golmon == 1) {
+        if (golmon == 1) {  // 50% de chance de louper son coup
             System.out.println(nom + " à 80 HP");
             System.out.println(nom + " se cogne la tête sur " + bot.nom);
             bot.hp -= force;
             hp -= force;
             System.out.println(bot.nom + " n'est plus qu'a " + bot.hp + " HP");
             System.out.println(" il reste " + hp + " HP au " + nom);
-        } else {
+        } else { // Se blessera dans tout les cas
             System.out.println(nom + " à 80 HP");
             System.out.println(nom + " s'apprête a se cogner la tête sur " + bot.nom);
             hp -= force;
@@ -31,15 +31,15 @@ public class TitanCon extends Personnage {
             System.out.println(nom + " a clamsé ");
         }
     }
-    public void golmonerie(Joueur bot) {
+    public void golmonerie(Joueur bot) { // Boost du titan
         Random random = new Random();
            int debile = random.nextInt(2);
-           if (debile == 1) {
+           if (debile == 1) { //50% toujours de toucher
                System.out.println(nom + " a " + hp + " HP ");
                System.out.println(nom + " pousse un crie de zinzin ");
                hp = hp + 10;
                System.out.println(nom + " passe a " + hp + " HP ");
-           } else {
+           } else { //Ou meurt
                System.out.println(nom + " a " + hp + " HP ");
                System.out.println(nom + " aboie tel un clebard et avale sa langue ");
                hp = 0;

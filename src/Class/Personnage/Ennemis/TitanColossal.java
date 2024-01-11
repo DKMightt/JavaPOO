@@ -10,17 +10,13 @@ public class TitanColossal extends Personnage {
     public TitanColossal(int hp, int force) {
         super("Titan Colossal", hp, force);
     }
-
-
-
-
-    public void attaquer(Joueur bot){
+    public void attaquer(Joueur bot){ // La fonction d'attaque
         System.out.println(bot.nom + " a " +bot.hp + " hp ");
         System.out.println(nom + " met une bavette  sur " + bot.nom);
         bot.hp -= force;
         System.out.println(bot.nom + " a perdu  " +force + " il est donc a :  " + bot.hp);
     }
-    public void defendre(Joueur bot){
+    public void defendre(Joueur bot){ // Passif de degats en retour
         System.out.println(nom + " gazifie " + bot.nom + " donc il perd " + brulure + "HP");
         bot.hp -= brulure;
         System.out.println("il lui reste donc " + bot.hp);
