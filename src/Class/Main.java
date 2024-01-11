@@ -1,3 +1,5 @@
+package Class;
+
 import Class.Items.Armes.Arme;
 import Class.Items.Interactuable;
 import Class.Items.Objets.Armure;

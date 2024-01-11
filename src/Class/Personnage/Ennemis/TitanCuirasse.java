@@ -17,13 +17,13 @@ public class TitanCuirasse extends Personnage {
     public void armureImpenetrable() {
 
     }
-    public void attaquer(Joueur bot){
+    public void attaquer(Joueur bot){ // 1er Attaque du titan
         System.out.println(bot.nom + " a " +bot.hp + " hp ");
         System.out.println(nom + " met une bavette  sur " + bot.nom);
         bot.hp -= force;
         System.out.println(bot.nom + " a perdu  " +force + " il est donc a :  " + bot.hp);
     }
-    public void defendre(Joueur bot){
+    public void defendre(Joueur bot){ // Passif annulation des degats
 
         Random random = new Random();
         int invincible = random.nextInt(3);
@@ -33,7 +33,7 @@ public class TitanCuirasse extends Personnage {
             System.out.println("il lui reste donc " + hp);
             }
     }
-    public void charge(Joueur bot){
+    public void charge(Joueur bot){ // 2e Attaque du titan
         bot.hp -= force *= 1.5;
         System.out.println(force);
         System.out.println(bot.nom + " " + bot.hp);
