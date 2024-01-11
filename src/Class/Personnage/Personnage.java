@@ -4,7 +4,7 @@ public class Personnage {
     public String nom;
     public int hp;
     public int force;
-
+ 
     public Personnage(String nom, int hp, int force) {
         this.nom = nom;
         this.hp = hp;
