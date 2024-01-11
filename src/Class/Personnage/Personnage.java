@@ -27,5 +27,6 @@ public class Personnage {
     public void attaquer(Joueur eren) {
     }
     public void defendre() {
+
     }
 }

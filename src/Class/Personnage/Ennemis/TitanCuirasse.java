@@ -2,10 +2,12 @@ package Class.Personnage.Ennemis;
 
 import Class.Personnage.Joueur;
 import Class.Personnage.Personnage;
+import java.util.Random;
 
 public class TitanCuirasse extends Personnage {
     public String nom = "Titan Cuirassé";
-    public int invincible;
+    Random random = new Random();
+    int invincible = random.nextInt(2);
 
     public TitanCuirasse( int hp, int force ) {
         super("Titan Cuirassé", hp, force);
@@ -21,4 +23,15 @@ public class TitanCuirasse extends Personnage {
         bot.hp -= force;
         System.out.println(bot.nom + " a perdu  " +force + " il est donc a :  " + bot.hp);
     }
+    public void defendre(Joueur bot){
+
+        Random random = new Random();
+        int invincible = random.nextInt(3);
+        if (invincible == 0){
+            System.out.println(nom + " est rock solid, il annule les dégats ");
+            hp += bot.force;
+            System.out.println("il lui reste donc " + hp);
+            }
+    }
+
 }

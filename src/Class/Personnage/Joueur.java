@@ -28,6 +28,6 @@ public class Joueur extends Personnage {
         System.out.println(nom + " zigouille " + bot.nom + " avec " + equipement.nom);
         int degatsTotal = force + equipement.degats;
         bot.hp -= degatsTotal;
-        System.out.println(bot.nom + " a perdu  " + degatsTotal + " il est donc a :  " + bot.hp);
+        System.out.println(bot.nom + " a perdu " + degatsTotal + " HP " + " il est donc a : " + bot.hp + " HP ");
     }
 }
