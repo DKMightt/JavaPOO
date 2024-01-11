@@ -16,4 +16,13 @@ public abstract class ObjetsDuJeu implements Interactuable {
         return nom;
     }
 
+    public void decrementdurabilite() {
+        durabilite-=1;
+        if (durabilite <= 0) {
+            System.out.println("L'objet " + getNom() + " est épuisé et disparaît !");
+        }
+    }
+    public boolean doitEtreSupprime() {
+        return durabilite <= 0;
+    }
 }

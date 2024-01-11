@@ -1,8 +1,7 @@
 package Class.Personnage;
 
 import Class.Items.Armes.Arme;
-import Class.Items.Objets.Nourritures;
-import Class.Items.Objets.Objet;
+import Class.Items.Objets.ObjetsAvecDurabilite;
 import Class.Items.ObjetsDuJeu;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class Joueur extends Personnage {
         System.out.println(bot.nom + " a perdu  " + degatsTotal + ". Il lui reste " + bot.hp + " hp");
     }
 
-    public void ajouterItem(ObjetsDuJeu objet){
+    public boolean ajouterItem(ObjetsDuJeu objet){
         if (argent < objet.prix){
             System.out.println("mon gars ta plus de moula on fait comment ");
         }
@@ -50,11 +49,35 @@ public class Joueur extends Personnage {
             this.inventaire.add(objet);
             argent -= objet.prix;
         }
+        return false;
     }
 
     public void afficherItem(){
         for (ObjetsDuJeu objet : inventaire) {
-            System.out.println("- " + objet.getNom());
+            System.out.println("-" + objet.getNom());
         }
+    }
+    public void gererDurabilite() {
+        ArrayList<ObjetsDuJeu> objetsASupprimer = new ArrayList<>();
+
+        for (ObjetsDuJeu item : inventaire) {
+            if (item instanceof ObjetsAvecDurabilite) {
+                ((ObjetsAvecDurabilite) item).decrementerDurabilite();
+
+                if (((ObjetsAvecDurabilite) item).doitEtreSupprime()) {
+                    System.out.println("L'objet " + item.getNom() + " est épuisé et disparaît !");
+                    objetsASupprimer.add(item);
+                }
+            }
+        }
+
+        // Supprimer les objets épuisés
+        for (ObjetsDuJeu item : objetsASupprimer) {
+            retirerItem(item);
+        }
+    }
+
+
+    private void retirerItem(ObjetsDuJeu item) {
     }
 }

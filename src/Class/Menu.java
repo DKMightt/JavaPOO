@@ -4,6 +4,7 @@ import Class.Items.Armes.Arme;
 import Class.Items.Objets.Armure;
 import Class.Items.Objets.Nourritures;
 import Class.Items.Objets.Testo;
+import Class.Items.ObjetsDuJeu;
 import Class.Personnage.Ennemis.TitanCuirasse;
 import Class.Personnage.Joueur;
 
@@ -44,23 +45,26 @@ public class Menu {
                 switch (achat) {
                     case 1:
                         System.out.println("Bien vu l'épée");
-                        Arme epee = new Arme ("excaliburne",2,10,2);
+                        Arme epee = new Arme ("(5)excaliburne",2,10,2);
                         player.ajouterItem(epee);
                         break;
                     case 2 :
                         System.out.println("Pas mal le steak halal");
-                        Nourritures steak = new Nourritures ("steak halal",1,10);
+                        Nourritures steak = new Nourritures ("(6)steak halal",1,10);
                         player.ajouterItem(steak);
+                        player.gererDurabilite();
                         break;
                     case 3 :
                         System.out.println("Ah OEEE TU JOU SAFE!");
-                        Armure shield = new Armure ("Doudoune Nike",1,10);
+                        Armure shield = new Armure ("(7)Doudoune Nike",1,10);
                         player.ajouterItem(shield);
+                        player.gererDurabilite();
                         break;
                     case 4 :
                         System.out.println("Ni Vu Ni Connu");
-                        Testo drogue = new Testo ("Héroines",1,2);
+                        Testo drogue = new Testo ("(8)Héroines",1,2);
                         player.ajouterItem(drogue);
+                        player.gererDurabilite();
                         break;
                     default:
                         System.out.println("Azy bouge");
@@ -79,7 +83,7 @@ public class Menu {
                 System.out.println("Quelle bail ! Il y a le " + ennemis.nom + " ! Tu dois l'affronter");
                 System.out.println("");
 
-                while (true){
+                while (player.hp > 0){
 
                     System.out.println("===== COMBAT =====");
                     System.out.println("1. Attaquer  ");
@@ -90,11 +94,43 @@ public class Menu {
                     switch (choi) {
                         case 1:
                             player.attaquer(ennemis);
+                            ennemis.attaquer(player);
                             break;
-                        default:
+                   // switch (choix) {
+                        case 2:
+
+                          System.out.println("choisi un item dans ton inventaire ");
+                            player.afficherItem();
+                            break;
+                            case 5:
+                                player.force+=10;
+                                player.attaquer(ennemis);
+                                player.force-=10;
+                                player.gererDurabilite();
+
+
+                                break;
+                            case 6:
+                                player.hp+=10;
+                                System.out.println("ta " + player.hp + "hp");
+                                player.gererDurabilite();
+                            break;
+                            case 7:
+                                   player.resistance+=10;
+                                   System.out.println("ton shield est de  " + player.resistance);
+                                   player.gererDurabilite();
+
+                                break;
+                            case 8:
+                                  player.force*=2;
+                                  System.out.println("ta plus de force : " + player.force);
+                                  player.gererDurabilite();
+
+                                break;
+                            default:
                             System.out.println("Fréro c'est pas compliqué 1 OU 2 !!!");
                     }
-
+                    player.gererDurabilite();
                 }
             default:
                 System.out.println("Option invalide. Veuillez choisir à nouveau.");
