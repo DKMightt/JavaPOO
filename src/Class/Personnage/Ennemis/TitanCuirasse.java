@@ -33,5 +33,10 @@ public class TitanCuirasse extends Personnage {
             System.out.println("il lui reste donc " + hp);
             }
     }
+    public void charge(Joueur bot){
+        bot.hp -= force *= 1.5;
+        System.out.println(force);
+        System.out.println(bot.nom + " " + bot.hp);
 
+    }
 }

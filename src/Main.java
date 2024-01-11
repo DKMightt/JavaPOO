@@ -20,21 +20,23 @@ public class Main {
         //TitanBestial lancerdeCaillouix = new TitanBestial(300, 15);
         //lancerdeCaillouix.attaquer(Eren);
         //Eren.attaquer(Excaliburne, lancerdeCaillouix);
-        TitanCon connerie = new TitanCon(80, 80);
-        connerie.golmonerie(Eren);
-        connerie.attarder(Eren);
+        //lancerdeCaillouix.singerie(Eren);
+        //TitanCon connerie = new TitanCon(80, 80);
+        //connerie.golmonerie(Eren);
+        //connerie.attarder(Eren);
         TitanCuirasse invincible = new TitanCuirasse( 200, 50);
         Eren.attaquer(Excaliburne, invincible);
         Eren.attaquer(invincible);
         invincible.attaquer(Eren);
         Eren.attaquer(invincible);
         invincible.defendre(Eren);
-        TitanColossal vaporisation = new TitanColossal(500, 60);
-        Eren.attaquer(vaporisation);
-        vaporisation.attaquer(Eren);
-        Eren.attaquer(Excaliburne, vaporisation);
-        Eren.attaquer(vaporisation);
-        vaporisation.defendre(Eren);
+        invincible.charge(Eren);
+        //TitanColossal vaporisation = new TitanColossal(500, 60);
+        //Eren.attaquer(vaporisation);
+        //vaporisation.attaquer(Eren);
+        //Eren.attaquer(Excaliburne, vaporisation);
+        //Eren.attaquer(vaporisation);
+        //vaporisation.defendre(Eren);
 
 
 
