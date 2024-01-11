@@ -7,13 +7,15 @@ import java.util.Random;
 public class TitanCon extends Personnage {
     public String nom = "Titan Con";
 
-    public TitanCon(int hp, int force) {
+    public TitanCon() {
 
-        super("Titan Con", hp, force);
+        super("Titan Con", 50, 10);
     }
 
     // Se met des dégats totalement conssenti losqu'il attaque
     public void attarder(Joueur bot) {
+        System.out.println("\n----- Début du tour de " + nom + " -----");
+
         Random random = new Random();
         int golmon = random.nextInt(2);
         if (golmon == 1) {
@@ -21,8 +23,9 @@ public class TitanCon extends Personnage {
             System.out.println(nom + " se cogne la tête sur " + bot.nom);
             bot.hp -= force;
             hp -= force;
-            System.out.println(bot.nom + " n'est plus qu'a " + bot.hp + " HP");
-            System.out.println(" il reste " + hp + " HP au " + nom);
+
+            System.out.println(bot.nom + " a perdu  " + force + " hp");
+            System.out.println("Il lui reste "+ bot.hp + " hp");
         } else {
             System.out.println(nom + " à 80 HP");
             System.out.println(nom + " s'apprête a se cogner la tête sur " + bot.nom);
@@ -30,6 +33,8 @@ public class TitanCon extends Personnage {
             System.out.println(nom + " a chier dans la colle et a viser a coté ");
             System.out.println(nom + " a clamsé ");
         }
+
+        System.out.println("\n----- Fin du tour -----");
     }
     public void golmonerie(Joueur bot) {
         Random random = new Random();
