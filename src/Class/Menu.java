@@ -4,6 +4,7 @@ import Class.Items.Armes.Arme;
 import Class.Items.Objets.Armure;
 import Class.Items.Objets.Nourritures;
 import Class.Items.Objets.Testo;
+import Class.Personnage.Ennemis.TitanCuirasse;
 import Class.Personnage.Joueur;
 
 import java.sql.SQLOutput;
@@ -24,7 +25,7 @@ public class Menu {
 
 
     while (true) {
-        System.out.println("==== LOBBY ====");
+        System.out.println("===== LOBBY =====");
         System.out.println("1. Acheter des objets  ");
         System.out.println("2. Voir l'inventaire ");
         System.out.println("3. COMMENCER LA PARTIE ");
@@ -73,7 +74,27 @@ public class Menu {
                 break;
             case 3:
                 System.out.println("WELCOME TO THE GOUl...");
-                break;
+                TitanCuirasse ennemis = new TitanCuirasse(200, 20);
+                System.out.println("Quelle bail ! Il y a le " + ennemis.nom + " ! Tu dois l'affronter");
+                System.out.println("");
+
+                while (true){
+
+                    System.out.println("===== COMBAT =====");
+                    System.out.println("1. Attaquer  ");
+                    System.out.println("2. Utiliser Items ");
+
+                    int choi = scanner.nextInt();    // Lire le choix de l'utilisateur
+
+                    switch (choi) {
+                        case 1:
+                            player.attaquer(ennemis);
+                            break;
+                        default:
+                            System.out.println("Fréro c'est pas compliqué 1 OU 2 !!!");
+                    }
+
+                }
             default:
                 System.out.println("Option invalide. Veuillez choisir à nouveau.");
         }

@@ -15,4 +15,5 @@ public abstract class ObjetsDuJeu implements Interactuable {
     public String getNom() {
         return nom;
     }
+
 }
