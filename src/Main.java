@@ -17,7 +17,6 @@ public class Main {
         Nourritures Steak = new Nourritures("Steak Halal", 100, 15);
         Steak.RamasserNourritures(Eren);
         System.out.println(" Nourriture : " + Eren.hp);
-
         Steak.UtiliserNourritures(Eren);               ;
         System.out.println(" Nourriture : " + Eren.hp);
         Armure PotionArmure = new Armure("Potion d'Armure", 1, 15);
