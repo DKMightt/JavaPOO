@@ -1,7 +1,5 @@
 package Class.Personnage;
 
-import java.util.Arrays;
-
 public class Personnage {
     public String nom;
     public int hp;
@@ -26,8 +24,9 @@ public class Personnage {
     public void infos(){
         System.out.println(nom + " HP : " + hp + " Force : " + force);
     }
-    public void attaquer() {
+    public void attaquer(Joueur eren) {
     }
     public void defendre() {
+
     }
 }
