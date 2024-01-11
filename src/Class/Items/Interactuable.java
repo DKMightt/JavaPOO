@@ -2,40 +2,38 @@ package Class.Items;
 
 import Class.Items.Objets.Armure;
 import Class.Items.Objets.Nourritures;
-import Class.Items.Objets.Objet;
 import Class.Items.Objets.Testo;
 import Class.Personnage.Joueur;
-import Class.Personnage.Personnage;
 
 public interface Interactuable {
-    public default void RamasserNourritures(Joueur player){
-        System.out.println(player.nom + " récupère l'item suivant : " + Nourritures.nom  );
 
-    };
-    public default void UtiliserNourritures(Joueur player){
-
-        player.hp += Nourritures.bonus;
-        System.out.println(player.nom + " démollit le " + Nourritures.nom);
-
-    };
-    public default void RamasserTesto(Joueur player){
-
-        System.out.println(player.nom + " récupère l'item suivant : " + Testo.nom);
+    /*
+    public default void RamasserNourritures(Joueur player, Nourritures nourriture){
+        System.out.println(player.nom + " récupère l'item suivant : " + nourriture.getNom());
     }
 
-    public default void UtiliserTesto(Joueur player){
-
-        player.force += Testo.bonus;
-        System.out.println(player.nom + " englouti la " + Testo.nom);
-    }
-    public default void RamasserArmure(Joueur player){
-
-        System.out.println(player.nom + " récupère l'item suivant : " + Armure.nom);
+    public default void UtiliserNourritures(Joueur player, Nourritures nourriture){
+        player.hp += nourriture.getBonus();
+        System.out.println(player.nom + " démollit le " + nourriture.getNom());
     }
 
-    public default void UtiliserArmure(Joueur player){
-
-        player.resistance += Armure.bonus;
-        System.out.println(player.nom + " tabasse la " + Armure.nom);
+    public default void RamasserTesto(Joueur player, Testo testo){
+        System.out.println(player.nom + " récupère l'item suivant : " + testo.getNom());
     }
+
+    public default void UtiliserTesto(Joueur player, Testo testo){
+        player.force += testo.getBonus();
+        System.out.println(player.nom + " englouti la " + testo.getNom());
+    }
+
+    public default void RamasserArmure(Joueur player, Armure armure){
+        System.out.println(player.nom + " récupère l'item suivant : " + armure.getNom());
+    }
+
+    public default void UtiliserArmure(Joueur player, Armure armure){
+        player.resistance += armure.getBonus();
+        System.out.println(player.nom + " tabasse la " + armure.getNom());
+    }
+
+    */
 }

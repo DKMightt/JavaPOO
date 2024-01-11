@@ -1,17 +1,21 @@
 package Class.Personnage;
 
 import Class.Items.Armes.Arme;
-import Class.Items.Interactuable;
+import Class.Items.Objets.Nourritures;
+import Class.Items.ObjetsDuJeu;
+
+import java.util.ArrayList;
 
 public class Joueur extends Personnage {
-    public  int resistance;
+    public int resistance;
+    public int argent = 5;
 
-    public String[] inventaire;
+    public ArrayList<ObjetsDuJeu> inventaire;
 
-    public Joueur(String nom, int hp, int force, String[] inventaire, int resistance) {
+    public Joueur(String nom, int hp, int force, int resistance) {
         super(nom, hp, force);
         this.resistance = resistance;
-        this.inventaire= inventaire;
+        this.inventaire= new ArrayList<>();
     }
 
     public Joueur(String nom){
@@ -25,9 +29,25 @@ public class Joueur extends Personnage {
     }
     public void attaquer(Arme equipement, Personnage bot  ){
         System.out.println(bot.nom + " a " +bot.hp + " hp ");
-        System.out.println(nom + " zigouille " + bot.nom + " avec " + equipement.nom);
+        System.out.println(nom + " zigouille " + bot.nom + " avec " + equipement.getNom());
         int degatsTotal = force + equipement.degats;
         bot.hp -= degatsTotal;
         System.out.println(bot.nom + " a perdu  " + degatsTotal + " il est donc a :  " + bot.hp);
+    }
+
+    public void ajouterItem(ObjetsDuJeu objet){
+        if (argent < objet.prix){
+            System.out.println("mon gars ta plus de moula on fait comment ");
+        }
+        else{
+            this.inventaire.add(objet);
+            argent -= objet.prix;
+        }
+    }
+
+    public void afficherItem(){
+        for (ObjetsDuJeu objet : inventaire) {
+            System.out.println("- " + objet.getNom());
+        }
     }
 }
