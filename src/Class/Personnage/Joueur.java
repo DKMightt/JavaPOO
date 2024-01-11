@@ -2,6 +2,7 @@ package Class.Personnage;
 
 import Class.Items.Armes.Arme;
 import Class.Items.Objets.Nourritures;
+import Class.Items.Objets.Objet;
 import Class.Items.ObjetsDuJeu;
 
 import java.util.ArrayList;
@@ -28,11 +29,17 @@ public class Joueur extends Personnage {
         System.out.println(bot.nom + " a perdu  " +force + " il est donc a :  " + bot.hp);
     }
     public void attaquer(Arme equipement, Personnage bot  ){
-        System.out.println(bot.nom + " a " +bot.hp + " hp ");
+        for (ObjetsDuJeu objet : inventaire) {
+            if (objet instanceof Arme) {
+                System.out.println("WSH TU AS UNE ARME SUR TOI");
+            }
+        }
+
+        System.out.println(bot.nom + " a " + bot.hp + " hp ");
         System.out.println(nom + " zigouille " + bot.nom + " avec " + equipement.getNom());
         int degatsTotal = force + equipement.degats;
         bot.hp -= degatsTotal;
-        System.out.println(bot.nom + " a perdu " + degatsTotal + " HP " + " il est donc a : " + bot.hp + " HP ");
+        System.out.println(bot.nom + " a perdu  " + degatsTotal + ". Il lui reste " + bot.hp + " hp");
     }
 
     public void ajouterItem(ObjetsDuJeu objet){
