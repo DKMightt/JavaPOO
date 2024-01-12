@@ -13,8 +13,6 @@ public class TitanCuirasse extends Personnage {
         super("Titan Cuirassé", hp, force);
     }
 
-    // Chance de pas prendre de dégats
-    public void armureImpenetrable() {
 
     }
     public void attaquer(Joueur bot){ // 1er Attaque du titan
