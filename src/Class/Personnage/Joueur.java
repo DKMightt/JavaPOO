@@ -4,9 +4,10 @@ import Class.Items.Armes.Arme;
 import Class.Items.Objets.ObjetsAvecDurabilite;
 import Class.Items.ObjetsDuJeu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Joueur extends Personnage {
+public class Joueur extends Personnage implements Serializable {
     public int resistance;
     public int argent = 5;
 
@@ -17,6 +18,11 @@ public class Joueur extends Personnage {
         this.resistance = resistance;
         this.inventaire= new ArrayList<>();
     }
+
+    public Joueur() {
+        super("", 0, 0);  // Initialiser avec des valeurs par défaut
+    }
+
 
     public Joueur(String nom){
         super(nom);

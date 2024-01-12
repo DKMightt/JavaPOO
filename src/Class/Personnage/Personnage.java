@@ -20,6 +20,10 @@ public class Personnage {
         this.force = force;
     }
 
+    public Personnage() {
+
+    }
+
 
     public void infos(){
         System.out.println(nom + " HP : " + hp + " Force : " + force);
@@ -33,5 +37,12 @@ public class Personnage {
 
         System.out.println("----- Fin du tour -----");
 
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void spe(Joueur player) {
     }
 }
