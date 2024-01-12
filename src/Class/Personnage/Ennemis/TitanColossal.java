@@ -33,4 +33,12 @@ public class TitanColossal extends Personnage {
 
         System.out.println("----- Fin du tour -----");
     }
+    public void attaque2(Joueur bot){
+        System.out.println("\n----- Début du tour de " + nom + " -----");
+
+        System.out.println(bot.nom + " a " +bot.hp + " hp ");
+        System.out.println(nom + " écrase " + bot.nom);
+
+        bot.defendre(this, force);
+    }
 }

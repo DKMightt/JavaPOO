@@ -137,6 +137,7 @@ public class Menu {
                             case 5:
                                 player.force+=15;
                                 player.attaquer(ennemis);
+                                System.out.println("Ta force passe a " + player.force);
                                 player.force-=15;
                                 player.gererDurabilite();
 
