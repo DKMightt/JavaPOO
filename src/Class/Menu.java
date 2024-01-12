@@ -4,15 +4,15 @@ import Class.Items.Armes.Arme;
 import Class.Items.Objets.Armure;
 import Class.Items.Objets.Nourritures;
 import Class.Items.Objets.Testo;
-import Class.Personnage.Ennemis.TitanBestial;
-import Class.Personnage.Ennemis.TitanColossal;
-import Class.Personnage.Ennemis.TitanCuirasse;
-import Class.Personnage.Ennemis.TitanMarteau;
+import Class.Items.ObjetsDuJeu;
+import Class.Personnage.Ennemis.*;
 import Class.Personnage.Joueur;
+import Class.Personnage.Personnage;
 
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Menu {
@@ -21,15 +21,15 @@ public class Menu {
 
     System.out.println("BIENVENUE DANS NOTRE JEU ! VEUILLEZ ENTRER VOTRE PSEUDO ");
     Scanner scanner = new Scanner(System.in);
-    String pseudo = scanner.nextLine(); // Variable qui stock le pseudo du joueur
+    String pseudo = scanner.nextLine();
 
     System.out.println(pseudo + " ? C'est claqué au sol jusqu'au ciel");
 
-    Joueur player = new Joueur( pseudo, 100, 10,0); // Création du joueur
+    Joueur player = new Joueur(pseudo, 100, 20, 0);
 
 
     while (true) {
-        System.out.println("\n ===== LOBBY =====");
+        System.out.println("===== LOBBY =====");
         System.out.println("1. Acheter des objets  ");
         System.out.println("2. Voir l'inventaire ");
         System.out.println("3. COMMENCER LA PARTIE ");
@@ -37,57 +37,78 @@ public class Menu {
         // Lire le choix de l'utilisateur
         int choix = scanner.nextInt();
 
-        switch (choix) { // Envoie dans un menu en fonction de la valeur "choix"
-            case 1: // Ouvre le menu magasin pour acheter des items
+        switch (choix) {
+            case 1:
 
-                System.out.println("\n Wsh t'as " + player.argent + " €. Tu veux acheter quoi");
+                System.out.println("Wsh t'as " + player.argent + " €. Tu veux acheter quoi");
                 System.out.println("1. Épée ( 2€ ) / 2. Kefta ( 1€ ) / 3. Armure ( 2€ ) / 4. Guedro ( 4€ ) ");
                 int achat = scanner.nextInt();
 
-                switch (achat) { // Créer puis dépose un item dans l'inventaire du joueur en fonction de la valeur "achat"
-                    case 1: // Arme Épée
-                        System.out.println("\nBien vu l'épée");
-                        Arme epee = new Arme ("excaliburne",2,10,2);
+                switch (achat) {
+                    case 1:
+                        System.out.println("Bien vu l'épée");
+                        Arme epee = new Arme ("(5)excaliburne",2,10,2);
                         player.ajouterItem(epee);
                         break;
-                    case 2 : // Nourriture Steak
-                        System.out.println("\nPas mal le steak halal");
-                        Nourritures steak = new Nourritures ("steak halal",1,10);
+                    case 2 :
+                        System.out.println("Pas mal le steak halal");
+                        Nourritures steak = new Nourritures ("(6)steak halal",1,10);
                         player.ajouterItem(steak);
+                        player.gererDurabilite();
                         break;
-                    case 3 : // Armure Doudoune
-                        System.out.println("\nAh OEEE TU JOU SAFE!");
-                        Armure shield = new Armure ("Doudoune Nike",1,10);
+                    case 3 :
+                        System.out.println("Ah OEEE TU JOU SAFE!");
+                        Armure shield = new Armure ("(7)Doudoune Nike",1,10);
                         player.ajouterItem(shield);
+                        player.gererDurabilite();
                         break;
-                    case 4 : // Testo drogue
-                        System.out.println("\nNi Vu Ni Connu");
-                        Testo drogue = new Testo ("Héroines",1,2);
+                    case 4 :
+                        System.out.println("Ni Vu Ni Connu");
+                        Testo drogue = new Testo ("(8)Héroines",1,2);
                         player.ajouterItem(drogue);
+                        player.gererDurabilite();
                         break;
-                    default: // Si "choix" contient une valeur pas pris en charge par le switch
+                    default:
                         System.out.println("Azy bouge");
                 }
                 break;
-
-            case 2: // Affiche l'argent possédé et le contenus de l'inventaire
-
-                System.out.println("\nVotre argent : " + player.argent + " €");
-                if (!player.inventaire.isEmpty()) { // Si l'inventaire n'est pas vide, alors l'afficher
+            case 2:
+                System.out.println("Votre argent : " + player.argent + " €");
+                if (!player.inventaire.isEmpty()) { //verifie taille de l'inventaire
                     System.out.println("Vos items :");
                     player.afficherItem();
                 }
                 break;
-
-            case 3: // Ouvre le menu de combat
+            case 3:
                 System.out.println("WELCOME TO THE GOUl...");
-                TitanColossal titan = new TitanColossal();
-                System.out.println(titan.hp);
-                System.out.println("Quelle bail ! Il y a le " + titan.nom + " ! Tu dois l'affronter");
 
-                while (true){
+                Random random = new Random();
+                int newEnnemis = random.nextInt(5);
+                System.out.println("Random : " + newEnnemis);
+                Personnage ennemis = null;
 
-                    System.out.println("\n===== COMBAT =====");
+                if (newEnnemis == 0) {
+                    ennemis = new TitanCuirasse();
+                } else if (newEnnemis == 1) {
+                    ennemis = new TitanColossal();
+                } else if (newEnnemis == 2) {
+                    ennemis = new TitanCon();
+                } else if (newEnnemis == 3) {
+                    ennemis = new TitanMarteau();
+                } else if (newEnnemis == 4) {
+                    ennemis = new TitanBestial();
+                }
+
+
+                System.out.println("Oulaaa ! C'est qui lui ? IL faut combattre le " + ennemis.nom);
+                
+                System.out.println("Quelle bail ! Il y a le " + ennemis.nom + " ! Tu dois l'affronter");
+                System.out.println("");
+
+                int game = 0;
+                while (game == 0){
+
+                    System.out.println("===== COMBAT =====");
                     System.out.println("1. Attaquer  ");
                     System.out.println("2. Utiliser Items ");
 
@@ -95,14 +116,71 @@ public class Menu {
 
                     switch (choi) {
                         case 1:
-                            player.attaquer(titan);
-                            titan.attaquer(player);
+                            player.attaquer(ennemis);
+                            random = new Random();
+                            int atk = random.nextInt(2);
+                            if (atk == 0){
+                                ennemis.attaquer(player);
+                            }
+                            if (atk == 1){
+                                ennemis.attaque2(player);
+                            }
+
+
                             break;
-                        default:
+                   // switch (choix) {
+                        case 2:
+
+                          System.out.println("choisi un item dans ton inventaire ");
+                            player.afficherItem();
+                            break;
+                            case 5:
+                                player.force+=15;
+                                player.attaquer(ennemis);
+                                System.out.println("Ta force passe a " + player.force);
+                                player.force-=15;
+                                player.gererDurabilite();
+
+                                break;
+                            case 6:
+                                player.hp+=10;
+                                System.out.println("ta " + player.hp + "hp");
+                                player.gererDurabilite();
+                            break;
+                            case 7:
+                                   player.resistance+=10;
+                                   System.out.println("ton shield est de  " + player.resistance);
+                                   player.gererDurabilite();
+
+                                break;
+                            case 8:
+                                  player.force*=2;
+                                  System.out.println("ta plus de force : " + player.force);
+                                  player.gererDurabilite();
+
+                                break;
+                            default:
                             System.out.println("Fréro c'est pas compliqué 1 OU 2 !!!");
                     }
-
+                    player.gererDurabilite();
+                    if (player.hp <= 0) {
+                        game = 1;
+                    } else if (ennemis.hp <= 0) {
+                        game = 2;
+                    }
                 }
+
+                if  (game == 1) {
+                    System.out.println("\n--- DÉFAITE ---");
+                } else if (game == 2) {
+                    System.out.println("\n--- VICTOIRE ---");
+                    System.out.println("\n Le " + ennemis.nom + " a fait tomber quelque chose !");
+                    System.out.println("\n Tu as gagné 10 €");
+                    player.argent += 10;
+                }
+                 player.hp = 100;
+
+
             default:
                 System.out.println("Option invalide. Veuillez choisir à nouveau.");
         }

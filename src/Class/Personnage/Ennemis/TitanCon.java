@@ -9,11 +9,11 @@ public class TitanCon extends Personnage {
 
     public TitanCon() {
 
-        super("Titan Con", 50, 10);
+        super("Titan Con", 50, 50);
     }
 
     // Se met des dégats totalement conssenti losqu'il attaque
-    public void attarder(Joueur bot) {
+    public void attaquer(Joueur bot) {
         System.out.println("\n----- Début du tour de " + nom + " -----");
 
         Random random = new Random();
@@ -36,7 +36,7 @@ public class TitanCon extends Personnage {
 
         System.out.println("\n----- Fin du tour -----");
     }
-    public void golmonerie(Joueur bot) {
+    public void attaque2(Joueur bot) {
         Random random = new Random();
            int debile = random.nextInt(2);
            if (debile == 1) {

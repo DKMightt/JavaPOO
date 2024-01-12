@@ -10,6 +10,7 @@ public class TitanCuirasse extends Personnage {
     int invincible = random.nextInt(2);
 
     public TitanCuirasse() {
+
         super("Titan Cuirassé", 100, 20);
     }
 
@@ -39,10 +40,10 @@ public class TitanCuirasse extends Personnage {
             System.out.println("----- Fin du tour -----");
         }
     }
-    public void charge(Joueur bot){
-        bot.hp -= force *= 1.5;
-        System.out.println(force);
-        System.out.println(bot.nom + " " + bot.hp);
+    public void attaque2(Joueur bot){
+        bot.hp -= force * 1.5;
+        System.out.println("Le Titan Cuirassé charge a tout allure et inflige " + force * 1.5 + " degats");
+        System.out.println(bot.nom + " a " + bot.hp + " hp");
 
     }
 }

@@ -7,7 +7,7 @@ public class TitanColossal extends Personnage {
     public int brulure = 5; // Dégats lorsqu'il est attaqué
 
     public TitanColossal() {
-        super("Titan Colossal", 100, 20);
+        super("Titan Colossal", 200, 15);
     }
 
 
@@ -32,5 +32,13 @@ public class TitanColossal extends Personnage {
         System.out.println("Il lui reste "+ attaquant.hp + " hp");
 
         System.out.println("----- Fin du tour -----");
+    }
+    public void attaque2(Joueur bot){
+        System.out.println("\n----- Début du tour de " + nom + " -----");
+
+        System.out.println(bot.nom + " a " +bot.hp + " hp ");
+        System.out.println(nom + " écrase " + bot.nom);
+
+        bot.defendre(this, force);
     }
 }

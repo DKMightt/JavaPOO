@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Joueur Eren = new Joueur("Eren", 100, 50,0);
+        Joueur Eren = new Joueur("Eren");
         Joueur Reiner = new Joueur("Reiner");
         Personnage younes = new Personnage( "bg_sur_pate", 30000, 0);
         Arme Excaliburne =  new Arme( " Excaliburne", 999 , 50 , 1);
