@@ -3,22 +3,34 @@ package Class.Personnage.Ennemis;
 import Class.Personnage.Personnage;
 import Class.Personnage.Joueur;
 public class TitanColossal extends Personnage {
-    public String nom = "Titan Colossal";
-    // Dégats lorsqu'il est attaqué
-    public int brulure = 5;
 
-    public TitanColossal(int hp, int force) {
-        super("Titan Colossal", hp, force);
+    public int brulure = 5; // Dégats lorsqu'il est attaqué
+
+    public TitanColossal() {
+        super("Titan Colossal", 100, 20);
     }
-    public void attaquer(Joueur bot){ // La fonction d'attaque
+
+
+
+
+    public void attaquer(Joueur bot){
+        System.out.println("\n----- Début du tour de " + nom + " -----");
+
         System.out.println(bot.nom + " a " +bot.hp + " hp ");
-        System.out.println(nom + " met une bavette  sur " + bot.nom);
-        bot.hp -= force;
-        System.out.println(bot.nom + " a perdu  " +force + " il est donc a :  " + bot.hp);
+        System.out.println(nom + " écrase " + bot.nom);
+
+        bot.defendre(this, force);
     }
-    public void defendre(Joueur bot){ // Passif de degats en retour
-        System.out.println(nom + " gazifie " + bot.nom + " donc il perd " + brulure + "HP");
-        bot.hp -= brulure;
-        System.out.println("il lui reste donc " + bot.hp);
+    public void defendre(Personnage attaquant, int degat) {
+        hp -= degat;
+        System.out.println(nom + " a perdu " + degat + " hp");
+        System.out.println("Il lui reste " + hp + " hp");
+
+        attaquant.hp -= brulure;
+        System.out.println(" \nMais le " + nom + " a gazifié " + attaquant.nom + " durant l'attaque");
+        System.out.println(attaquant.nom + " a perdu " + brulure + " hp");
+        System.out.println("Il lui reste "+ attaquant.hp + " hp");
+
+        System.out.println("----- Fin du tour -----");
     }
 }
