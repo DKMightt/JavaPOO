@@ -5,13 +5,14 @@ import Class.Items.Objets.Armure;
 import Class.Items.Objets.Nourritures;
 import Class.Items.Objets.Testo;
 import Class.Items.ObjetsDuJeu;
-import Class.Personnage.Ennemis.TitanCuirasse;
-import Class.Personnage.Ennemis.TitanMarteau;
+import Class.Personnage.Ennemis.*;
 import Class.Personnage.Joueur;
+import Class.Personnage.Personnage;
 
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Menu {
@@ -80,11 +81,32 @@ public class Menu {
                 break;
             case 3:
                 System.out.println("WELCOME TO THE GOUl...");
-                TitanMarteau ennemis = new TitanMarteau();
+
+                Random random = new Random();
+                int newEnnemis = random.nextInt(5);
+                System.out.println("Random : " + newEnnemis);
+                Personnage ennemis = null;
+
+                if (newEnnemis == 0) {
+                    ennemis = new TitanCuirasse();
+                } else if (newEnnemis == 1) {
+                    ennemis = new TitanColossal();
+                } else if (newEnnemis == 2) {
+                    ennemis = new TitanCon();
+                } else if (newEnnemis == 3) {
+                    ennemis = new TitanMarteau();
+                } else if (newEnnemis == 4) {
+                    ennemis = new TitanBestial();
+                }
+
+
+                System.out.println("Oulaaa ! C'est qui lui ? IL faut combattre le " + ennemis.nom);
+                
                 System.out.println("Quelle bail ! Il y a le " + ennemis.nom + " ! Tu dois l'affronter");
                 System.out.println("");
 
-                while (player.hp > 0){
+                int game = 0;
+                while (game == 0){
 
                     System.out.println("===== COMBAT =====");
                     System.out.println("1. Attaquer  ");
@@ -131,7 +153,24 @@ public class Menu {
                             System.out.println("Fréro c'est pas compliqué 1 OU 2 !!!");
                     }
                     player.gererDurabilite();
+                    if (player.hp <= 0) {
+                        game = 1;
+                    } else if (ennemis.hp <= 0) {
+                        game = 2;
+                    }
                 }
+
+                if  (game == 1) {
+                    System.out.println("\n--- DÉFAITE ---");
+                } else if (game == 2) {
+                    System.out.println("\n--- VICTOIRE ---");
+                    System.out.println("\n Le " + ennemis.nom + " a fait tomber quelque chose !");
+                    System.out.println("\n Tu as gagné 10 €");
+                    player.argent += 10;
+                }
+                 player.hp = 100;
+
+
             default:
                 System.out.println("Option invalide. Veuillez choisir à nouveau.");
         }
