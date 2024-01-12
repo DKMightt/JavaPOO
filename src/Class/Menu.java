@@ -6,6 +6,7 @@ import Class.Items.Objets.Nourritures;
 import Class.Items.Objets.Testo;
 import Class.Items.ObjetsDuJeu;
 import Class.Personnage.Ennemis.TitanCuirasse;
+import Class.Personnage.Ennemis.TitanMarteau;
 import Class.Personnage.Joueur;
 
 
@@ -23,7 +24,7 @@ public class Menu {
 
     System.out.println(pseudo + " ? C'est claqué au sol jusqu'au ciel");
 
-    Joueur player = new Joueur( pseudo, 100, 10,0);
+    Joueur player = new Joueur(pseudo, 100, 20, 0);
 
 
     while (true) {
@@ -79,7 +80,7 @@ public class Menu {
                 break;
             case 3:
                 System.out.println("WELCOME TO THE GOUl...");
-                TitanCuirasse ennemis = new TitanCuirasse(200, 20);
+                TitanMarteau ennemis = new TitanMarteau();
                 System.out.println("Quelle bail ! Il y a le " + ennemis.nom + " ! Tu dois l'affronter");
                 System.out.println("");
 
@@ -103,11 +104,10 @@ public class Menu {
                             player.afficherItem();
                             break;
                             case 5:
-                                player.force+=10;
+                                player.force+=15;
                                 player.attaquer(ennemis);
-                                player.force-=10;
+                                player.force-=15;
                                 player.gererDurabilite();
-
 
                                 break;
                             case 6:

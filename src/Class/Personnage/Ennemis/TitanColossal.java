@@ -7,7 +7,7 @@ public class TitanColossal extends Personnage {
     public int brulure = 5; // Dégats lorsqu'il est attaqué
 
     public TitanColossal() {
-        super("Titan Colossal", 100, 20);
+        super("Titan Colossal", 200, 15);
     }
 
 

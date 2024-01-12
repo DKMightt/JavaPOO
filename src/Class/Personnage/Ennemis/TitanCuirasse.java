@@ -10,6 +10,7 @@ public class TitanCuirasse extends Personnage {
     int invincible = random.nextInt(2);
 
     public TitanCuirasse() {
+
         super("Titan Cuirassé", 100, 20);
     }
 

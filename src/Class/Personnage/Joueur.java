@@ -22,10 +22,11 @@ public class Joueur extends Personnage {
         super(nom);
     }
     public void attaquer(Personnage bot){
-        System.out.println(bot.nom + " a " +bot.hp + " hp ");
+        System.out.println("\n----- Début du tour de " + nom + " -----");
+        System.out.println(bot.nom + " a " + bot.hp + " hp ");
         System.out.println(nom + " met un gros chasser dans le crane de " + bot.nom);
-        bot.hp -= force;
-        System.out.println(bot.nom + " a perdu  " +force + " il est donc a :  " + bot.hp);
+
+        bot.defendre(this, force);
     }
     public void attaquer(Arme equipement, Personnage bot  ){
         for (ObjetsDuJeu objet : inventaire) {
@@ -37,8 +38,8 @@ public class Joueur extends Personnage {
         System.out.println(bot.nom + " a " + bot.hp + " hp ");
         System.out.println(nom + " zigouille " + bot.nom + " avec " + equipement.getNom());
         int degatsTotal = force + equipement.degats;
-        bot.hp -= degatsTotal;
-        System.out.println(bot.nom + " a perdu  " + degatsTotal + ". Il lui reste " + bot.hp + " hp");
+
+        defendre(this, degatsTotal);
     }
 
     public boolean ajouterItem(ObjetsDuJeu objet){

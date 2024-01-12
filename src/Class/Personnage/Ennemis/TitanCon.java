@@ -9,7 +9,7 @@ public class TitanCon extends Personnage {
 
     public TitanCon() {
 
-        super("Titan Con", 50, 10);
+        super("Titan Con", 50, 50);
     }
 
     // Se met des dégats totalement conssenti losqu'il attaque

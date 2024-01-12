@@ -11,7 +11,7 @@ public class TitanBestial extends Personnage {
 
     public TitanBestial() {
 
-        super("Titan Bestial", 100, 20);
+        super("Titan Bestial", 125, 5);
     }
 
     // Dégats aléatoire entre X et X rafales
