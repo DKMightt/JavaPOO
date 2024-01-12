@@ -3,25 +3,28 @@ package Class.Personnage.Ennemis;
 import Class.Personnage.Personnage;
 import Class.Personnage.Joueur;
 public class TitanMarteau extends Personnage {
-    public String nom = "Titan Marteau";
-    public int regeneration;
 
-    public TitanMarteau( int hp, int force) {
-        super("Titan Marteau", hp, force);
+    public String nom = "Titan Marteau";
+    public TitanMarteau() {
+        super("Titan Marteau", 100, 20);
     }
 
     // Se regenere en fonction des dégats qu'il inflige
     public  void attaquer(Joueur bot) {
-        bot.hp -= force;
-        System.out.println(nom + " a stompé " + bot.nom);
-        System.out.println(bot.nom + " est a " + bot.hp + " HP ");
-        hp += force/2; // Se regenere 50% de sa force
-        System.out.println(nom + " s'est régénéré et est donc a " + hp + " HP ");
-    }
-    public void enragement(Joueur bot) { // Boost du titan
-        System.out.println(nom + " hurle et enrage son marteau ");
-        force = force + 10;
-        System.out.println(nom + " possède désormais " + force + " d'attaque ");
-    }
+        System.out.println("\n----- Début du tour de " + nom + " -----");
+        System.out.println(bot.nom + " a " + bot.hp + " hp ");
+        System.out.println(nom + " donne un coup de marteau à " + bot.nom);
 
+        bot.defendre(this, force);
+
+        int regen = force/2;
+        hp += regen;
+        System.out.println(nom + " a stompé " + bot.nom);
+        System.out.println(nom + " s'est régénéré " + regen + " HP ");
+        System.out.println(nom + " a désormais " + hp + " HP ");
+
+
+
+
+    }
 }

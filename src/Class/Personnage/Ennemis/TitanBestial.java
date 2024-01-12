@@ -6,26 +6,31 @@ import java.util.Random;
 public class TitanBestial extends Personnage {
 
     public String nom = "Titan Bestial";
-    // 15 de force
+
     public int cailloux = 15;
 
-    public TitanBestial(int hp, int force) {
-        super("Titan Bestial", hp, force);
+    public TitanBestial() {
+
+        super("Titan Bestial", 100, 20);
     }
 
     // Dégats aléatoire entre X et X rafales
     public void attaquer(Joueur bot) {
+        System.out.println("\n----- Début du tour de " + nom + " -----");
+        System.out.println(bot.nom + " a " + bot.hp + " hp ");
+
         Random random = new Random();
-        int cailloux = random.nextInt(1, 6); // Determine le nombre de projectiles
-        System.out.println(nom + " va rafaler " + cailloux + " fois " + bot.nom);
-        force *= cailloux;
-        bot.hp -= force;
-        System.out.println(bot.nom + " a prit " + force + " dégats ");
-        System.out.println(" il reste " + bot.hp + " HP a " + bot.nom);
-        force = 15; // Reset des degats des cailloux
+        int cailloux = random.nextInt(1, 6);
+        int degatsTotal = force *= cailloux;
+
+        System.out.println(nom + " envoie une rafale de pierres " + bot.nom);
+        System.out.println(cailloux + " cailloux l'ont touché");
+
+        bot.defendre(this, degatsTotal);
+
     }
 
-    public void singerie(Joueur bot) { // Boost du titan
+    public void singerie(Joueur bot) {
         force = force += 10;
         System.out.println(nom + " pousse un hurlement bestial et passe a " + force + " d'attaque");
     }
