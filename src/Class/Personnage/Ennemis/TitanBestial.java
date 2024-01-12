@@ -30,7 +30,7 @@ public class TitanBestial extends Personnage {
 
     }
 
-    public void singerie(Joueur bot) {
+    public void attaque2(Joueur bot) {
         force = force += 10;
         System.out.println(nom + " pousse un hurlement bestial et passe a " + force + " d'attaque");
     }

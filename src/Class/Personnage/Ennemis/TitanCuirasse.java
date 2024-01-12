@@ -40,7 +40,7 @@ public class TitanCuirasse extends Personnage {
             System.out.println("----- Fin du tour -----");
         }
     }
-    public void charge(Joueur bot){
+    public void attaque2(Joueur bot){
         bot.hp -= force *= 1.5;
         System.out.println(force);
         System.out.println(bot.nom + " " + bot.hp);

@@ -33,11 +33,11 @@ public class TitanMarteau extends Personnage {
 
     }
 
-        public void enragement() { // Boost du titan
-            System.out.println(nom + " hurle et enrage son marteau ");
-            force = force + 10;
-            System.out.println(nom + " possède désormais " + force + " d'attaque ");
-        }
+    public void attaque2(Joueur bot) { // Boost du titan
+        System.out.println(nom + " hurle et enrage son marteau ");
+        force = force + 10;
+        System.out.println(nom + " possède désormais " + force + " d'attaque ");
+    }
 
 
 

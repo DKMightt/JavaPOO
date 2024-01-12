@@ -5,6 +5,7 @@ import Class.Items.Objets.Armure;
 import Class.Items.Objets.Nourritures;
 import Class.Items.Objets.Testo;
 import Class.Items.ObjetsDuJeu;
+import Class.Personnage.Ennemis.TitanCon;
 import Class.Personnage.Ennemis.TitanCuirasse;
 import Class.Personnage.Ennemis.TitanMarteau;
 import Class.Personnage.Joueur;
@@ -12,6 +13,7 @@ import Class.Personnage.Joueur;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Menu {
@@ -80,7 +82,7 @@ public class Menu {
                 break;
             case 3:
                 System.out.println("WELCOME TO THE GOUl...");
-                TitanMarteau ennemis = new TitanMarteau();
+                TitanCon ennemis = new TitanCon();
                 System.out.println("Quelle bail ! Il y a le " + ennemis.nom + " ! Tu dois l'affronter");
                 System.out.println("");
 
@@ -95,12 +97,19 @@ public class Menu {
                     switch (choi) {
                         case 1:
                             player.attaquer(ennemis);
-                            ennemis.attaquer(player);
+                            Random random = new Random();
+                            int attaque = random.nextInt(2);
+                            if (attaque == 0){
+                                ennemis.attaquer(player);
+                            }
+                            else {
+                                ennemis.attaque2(player);
+                            }
                             break;
                    // switch (choix) {
                         case 2:
 
-                          System.out.println("choisi un item dans ton inventaire ");
+                          System.out.println("Choisi un item dans ton inventaire ");
                             player.afficherItem();
                             break;
                             case 5:
