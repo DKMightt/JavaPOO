@@ -117,7 +117,16 @@ public class Menu {
                     switch (choi) {
                         case 1:
                             player.attaquer(ennemis);
-                            ennemis.attaquer(player);
+                            random = new Random();
+                            int atk = random.nextInt(2);
+                            if (atk == 0){
+                                ennemis.attaquer(player);
+                            }
+                            if (atk == 1){
+                                ennemis.attaque2(player);
+                            }
+
+
                             break;
                    // switch (choix) {
                         case 2:

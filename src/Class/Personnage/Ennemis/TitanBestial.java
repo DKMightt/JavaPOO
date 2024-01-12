@@ -21,7 +21,7 @@ public class TitanBestial extends Personnage {
 
         Random random = new Random();
         int cailloux = random.nextInt(1, 6);
-        int degatsTotal = force *= cailloux;
+        int degatsTotal = force * cailloux;
 
         System.out.println(nom + " envoie une rafale de pierres " + bot.nom);
         System.out.println(cailloux + " cailloux l'ont touché");
@@ -31,7 +31,7 @@ public class TitanBestial extends Personnage {
     }
 
     public void attaque2(Joueur bot) {
-        force = force += 10;
+        force = force += 5;
         System.out.println(nom + " pousse un hurlement bestial et passe a " + force + " d'attaque");
     }
 }

@@ -41,9 +41,9 @@ public class TitanCuirasse extends Personnage {
         }
     }
     public void attaque2(Joueur bot){
-        bot.hp -= force *= 1.5;
-        System.out.println(force);
-        System.out.println(bot.nom + " " + bot.hp);
+        bot.hp -= force * 1.5;
+        System.out.println("Le Titan Cuirassé charge a tout allure et inflige " + force * 1.5 + " degats");
+        System.out.println(bot.nom + " a " + bot.hp + " hp");
 
     }
 }

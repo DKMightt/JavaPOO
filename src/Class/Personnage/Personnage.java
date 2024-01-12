@@ -34,4 +34,7 @@ public class Personnage {
         System.out.println("----- Fin du tour -----");
 
     }
+
+    public void attaque2(Joueur player) {
+    }
 }
